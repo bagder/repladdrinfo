@@ -55,8 +55,8 @@ static struct addrinfo *mk_getaddrinfo(const struct ares_addrinfo *aihead)
 {
   const struct ares_addrinfo_node *ai;
   struct addrinfo *ca;
-  struct addrinfo *cafirst;
-  struct addrinfo *calast;
+  struct addrinfo *cafirst = NULL;
+  struct addrinfo *calast = NULL;
   const char *name = aihead->name;
 
   /* traverse the addrinfo list */
