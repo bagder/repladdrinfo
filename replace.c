@@ -81,8 +81,10 @@ static struct addrinfo *mk_getaddrinfo(const struct ares_addrinfo *aihead)
       continue;
 
     ca = malloc(sizeof(struct addrinfo) + ss_size + namelen);
-    if(!ca)
+    if(!ca) {
+      r_freeaddrinfo(cafirst);
       return NULL;
+    }
 
     /* copy each structure member individually, member ordering, */
     /* size, or padding might be different for each platform.    */
